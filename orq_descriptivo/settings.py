@@ -237,6 +237,33 @@ schema_dpto_reg = StructType([ \
     StructField('Region_DANE', StringType(), True)
   ])
 
+schema = StructType([
+            StructField("Anno Cargue SECOP", StringType(), True),
+            StructField("Anno Firma del Contrato", StringType(), True),
+            StructField("Nivel Entidad", StringType(), True),
+            StructField("Orden Entidad", StringType(), True),
+            StructField("Tipo de Proceso", StringType(), True),
+            StructField("Estado del Proceso", StringType(), True),
+            StructField("Objeto a Contratar", StringType(), True),
+            StructField("Detalle del Objeto a Contratar", StringType(), True),
+            StructField("Tipo de Contrato", StringType(), True),
+            StructField("Cuantia Proceso", StringType(), True),
+            StructField("Nombre Grupo", StringType(), True),
+            StructField("Nombre Familia", StringType(), True),
+            StructField("Nombre Clase", StringType(), True),
+            StructField("Fecha Ini Ejec Contrato", StringType(), True),
+            StructField("Plazo de Ejec del Contrato", StringType(), True),
+            StructField("Rango de Ejec del Contrato", StringType(), True),
+            StructField("Tiempo Adiciones en Dias", StringType(), True),
+            StructField("Tiempo Adiciones en Meses", StringType(), True),
+            StructField("Fecha Fin Ejec Contrato", StringType(), True),
+            StructField("Cuantia Contrato", StringType(), True),
+            StructField("Valor Contrato con Adiciones", StringType(), True),
+            StructField("Objeto del Contrato a la Firma", StringType(), True),
+            StructField("Origen de los Recursos", StringType(), True),
+            StructField("Departamento Entidad", StringType(), True),
+        ])
+
 columnas_drop = ('Nombre de la Entidad', 'NIT de la Entidad', 'Código de la Entidad', 'ID Tipo de Proceso', \
                         'Causal de Otras Formas de Contratacion Directa', 'ID Regimen de Contratacion', 'Regimen de Contratacion',\
                         'ID Objeto a Contratar', 'Municipio Obtencion', 'Municipio Entrega', 'Municipios Ejecucion', \
