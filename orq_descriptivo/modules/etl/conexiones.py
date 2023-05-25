@@ -43,36 +43,10 @@ class Conexion:
         results = client.get_all(dataset_id, limit=limit)
         
         # Crear un DataFrame de Spark a partir del RDD
-        schema = StructType([
-            StructField("Anno Cargue SECOP", StringType(), True),
-            StructField("Anno Firma del Contrato", StringType(), True),
-            StructField("Nivel Entidad", StringType(), True),
-            StructField("Orden Entidad", StringType(), True),
-            StructField("Tipo de Proceso", StringType(), True),
-            StructField("Estado del Proceso", StringType(), True),
-            StructField("Objeto a Contratar", StringType(), True),
-            StructField("Detalle del Objeto a Contratar", StringType(), True),
-            StructField("Tipo de Contrato", StringType(), True),
-            StructField("Cuantia Proceso", StringType(), True),
-            StructField("Nombre Grupo", StringType(), True),
-            StructField("Nombre Familia", StringType(), True),
-            StructField("Nombre Clase", StringType(), True),
-            StructField("Fecha Ini Ejec Contrato", StringType(), True),
-            StructField("Plazo de Ejec del Contrato", StringType(), True),
-            StructField("Rango de Ejec del Contrato", StringType(), True),
-            StructField("Tiempo Adiciones en Dias", StringType(), True),
-            StructField("Tiempo Adiciones en Meses", StringType(), True),
-            StructField("Fecha Fin Ejec Contrato", StringType(), True),
-            StructField("Cuantia Contrato", StringType(), True),
-            StructField("Valor Contrato con Adiciones", StringType(), True),
-            StructField("Objeto del Contrato a la Firma", StringType(), True),
-            StructField("Origen de los Recursos", StringType(), True),
-            StructField("Departamento Entidad", StringType(), True),
-        ])
-        
+        schema = sts.schema
         results_rdd = self.spark_session.sparkContext.parallelize(results)
         results_df = self.spark_session.read.json(results_rdd, schema)
         
         # Guardar el DataFrame como archivo CSV
-        results_df.write.csv("tablas/SECOP.csv", header=True, mode="overwrite")
+        results_df.write.csv(sts.crudos+"SECOP.csv", header=True, mode="overwrite")
 
