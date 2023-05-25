@@ -43,8 +43,7 @@ Adicionalmente, enriquecemos la información agregando los registros históricos
 Desarrollamos una herramienta descriptiva que aplica técnicas de procesamiento de lenguaje natural al objeto contractual de los contratos de obra de SECOP I para identificar inversiones asociadas a algunas de las dimensiones de la Pobreza Multidimensional
 
 
-   ```
-mermaid
+   ```mermaid
 graph LR
 A[Recopilación de datos: SECOP I, DANE]
 A --> B[Extracción de los datos: Spark, Python]
