@@ -70,29 +70,29 @@ En la primera version de la herramienta no se construyeron bases de datos debido
 ## Estructura del Orquestador 
 A continuacion se listan los archivos que se usan en el orquestador y como se usa cada uno:
 
-Conexiones.py
+`Conexiones.py`
 Clase con dos atributos:
 * Se configura la sesión de pyspark, de manera eficiente y parametrizada.
 * Se configura la conexión a la API de SECOP I por medio de Socrata, con el fin de descargar el segmento de interes de los contratos.
 
-etl_dane_imp.py
+`etl_dane_imp.py`
 Clase IPM_DANE
 Con atributos para:
 * Recibir información procesar y obtener la información geográfica, el IPM por departamentos, por regiones, a nivel nacional, la contribución de las dimensiones del IPM a nivel nacional y regional
 * Se envían los resultados al DataMart para ser ingestados al tablero
 
-etl_dane_pob.py
+`etl_dane_pob.py`
 Clase PoblacionesDANE
 * Se obtiene la información poblacional de acuerdo al senso publicado en el DANE y se llevan los resultados al DataMart
 
-etl_secop.py
+`etl_secop.py`
 Clase SECOP_ETL
 Con atributos para:
 * Función donde se recibe la información del SECOP I y se procesa con el fin de tener limpia y dispuesta la información y poderla ingestar en el modelo LDA para encontrar tópicos.
 * Se enriquece la base cruzando con la información del DANE
 * Se dispone la información final en una tabla en el DataMart
 
-lda.py
+`lda.py`
 En este archivo se disponen funciones y clases para identificar tópicos en el detalle del objeto del contrato con el fin de identificar tópicos que se puedan asociar con las dimensiones del IPM de acuerdo a la definición de cada una de estas.
 Esta trae las siguientes funciones independientes, y cases con sus respectivos atributos:
 * def iter_column, función que produce una lista de lemas
@@ -104,10 +104,10 @@ Esta trae las siguientes funciones independientes, y cases con sus respectivos a
 * def assign_most_probable_topic, funcion que asigna un tema probable a una lista de lemas
 * def execute_analysis, función que integra las clases y funciones anteriores con el fin de obtener el resultado final de los tópicos asociados a el IPM
 
-settings.py
+`settings.py`
 Este archivo es donde se parametrizan todos los datos estáticos del proyecto, con el fin de hacer mas eficiente el código 
 
-__init__.py
+`__init__.py`
 En este archivo se crea la instancia de conexión a Spark, se conecta a las fuentes del DataMart, se instancian las ETLs el modelo y se ejecutan en cascada con el fin de tener los insumos para el front
 
 ## Front
