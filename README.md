@@ -42,19 +42,14 @@ Adicionalmente, enriquecemos la información agregando los registros históricos
 ## Diagrama descriptivo
 Desarrollamos una herramienta descriptiva que aplica técnicas de procesamiento de lenguaje natural al objeto contractual de los contratos de obra de SECOP I para identificar inversiones asociadas a algunas de las dimensiones de la Pobreza Multidimensional
 
-Recopilación de datos: SECOP I, DANE
-    |
-    v
-Extracción de los datos: Spark, Python
-    |
-    v
-Transformación de los datos: Selección de columnas relevantes, ajustes de formato y organización de la información
-    |
-    v
-Análisis de los datos: Identificación de contratos asociados a las dimensiones de pobreza usando Procesamiento de Lenguaje Natural (PLN)
-    |
-    v
-Aplicación de los datos: Tablero de control Power BI
+```mermaid
+graph LR
+A[Recopilación de datos: SECOP I, DANE]
+A --> B[Extracción de los datos: Spark, Python]
+B --> C[Transformación de los datos: Selección de columnas relevantes, ajustes de formato y organización de la información]
+C --> D[Análisis de los datos: Identificación de contratos asociados a las dimensiones de pobreza usando Procesamiento de Lenguaje Natural (PLN)]
+D --> E[Aplicación de los datos: Tablero de control Power BI]
+```
 
 ## Bases de datos:
 En la primera version de la herramienta no se construyeron bases de datos debido al alcance inicial y al tiempo que se tenia para el primer entregable. Sin embargo, se estructuran dos carpetas dentro del Framework, 
